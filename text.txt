@@ -1,0 +1,32 @@
+mkdir library-express
+cd library-express
+npm init -y
+atom .
+git init
+touch .gitignore
+npm install express morgan
+npm install nodemon --save-dev
+touch index.js
+npm start
+http GET localhost:3003/
+git add .
+git commit -m "First commit"
+touch books.json
+http GET localhost:3003/books
+git add .
+git commit -m "Index route working."
+http GET localhost:3003/books/978-1-891830-71-6
+git add .
+git commit -m "Show route working"
+http PUT localhost:3003/978-1-891830-71-6 author="Jeffrey Brown" title="AEIOU or Any Easy
+Intimacy" price=10.99 ISBN=978-1-891830-71-6
+http PUT localhost:3003/books/978-1-891830-71-6 author="Jeffrey Brown" title="AEIOU or Any
+Easy Intimacy" price=10.99 ISBN=978-1-891830-71-6
+git add .
+git commit -m "Update route works."
+http PUT localhost:3003/books/978-1-891830-71-6 author="Jeffrey Brown" title="AEIOU or Any
+Easy Intimacy" price=9.99
+http PUT localhost:3003/books/978-1-891830-71-6 author="Jeffrey Brown" title="AEIOU or Any
+Easy Intimacy" price=8.99
+http PUT localhost:3003/books/978-1-891830-71-6 price=9.90
+git add .
