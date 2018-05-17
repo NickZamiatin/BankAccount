@@ -1,17 +1,17 @@
 [{
-        "ID": "e7e84c60-59df-11e8-a325-ef1d4f37f843",
+        "id": "e7e84c60-59df-11e8-a325-ef1d4f37f843",
         "accountHalder": "Matt Jons",
         "bankName": "HSBC",
         "description": "checking"
     },
     {
-        "ID": "e9fbc310-59df-11e8-bdd7-d142f8b65319",
+        "id": "e9fbc310-59df-11e8-bdd7-d142f8b65319",
         "accountHalder": "Leen Louranse",
         "bankName": "CityBanck",
         "description": "saving"
     },
     {
-        "ID": "629cf500-59e0-11e8-ba0d-9d9cdf234223",
+        "id": "629cf500-59e0-11e8-ba0d-9d9cdf234223",
         "accountHalder": "Dan Franklin",
         "bankName": "WQells Fargo",
         "description": "checking"
