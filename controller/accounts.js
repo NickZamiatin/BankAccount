@@ -9,8 +9,14 @@ const show = (request, response) => {
         const account = accountModel.show(request.params.id);
         response.send(account)
 }
-const create = (request, response) => {}
-const update = (request, response) => {}
+const create = (request, response) => {
+            const account = accountModel.create(request.body);
+            response.send(account)
+}
+const update = (request, response) => {
+            const account = accountModel.update(request.params.id, request.body);
+            response.send(account)
+}
 const destroy = (request, response) => {}
 
 
