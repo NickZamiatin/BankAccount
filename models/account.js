@@ -71,9 +71,9 @@ const destroy = (id) => {
             return true;
         }
     });
-        deleteAccountJSON = JSON.stringify(destroyAccount);
-        fs.writeFile(accountPath, deleteAccountJSON)
-        return destroyAccount
+    deleteAccountJSON = JSON.stringify(destroyAccount);
+    fs.writeFile(accountPath, deleteAccountJSON)
+    return destroyAccount
 }
 
 module.exports = {
