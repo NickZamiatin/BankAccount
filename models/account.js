@@ -59,7 +59,22 @@ const update = (id, {
 
 
 }
-const destroy = () => {}
+const destroy = (id) => {
+    let deleteObj;
+    const accountJSON = fs.readFileSync(accountPath, 'utf-8');
+    const accounts = JSON.parse(accountJSON);
+    const destroyAccount = accounts.filter(account => {
+        if (account.id === id) {
+            deleteObj = account;
+            return false;
+        } else {
+            return true;
+        }
+    });
+        deleteAccountJSON = JSON.stringify(destroyAccount);
+        fs.writeFile(accountPath, deleteAccountJSON)
+        return destroyAccount
+}
 
 module.exports = {
     index,
