@@ -40,9 +40,29 @@ const create = (account_id, {
     fs.writeFile(transactionPath, updatTransactionJSON)
     return transactionCreate
 }
-const update = (transaction_id) => {
+const update = (id, {
+        amount,
+        pending
+    }) => {
+        letObj;
     const transactionJSON = fs.readFileSync(transactionPath);
     const allTransaction = JSON.parse(transactionJSON);
+        const updateTransactionArray = allTransaction.map(transaction => {
+            if (transaction.id === id) {
+                letObj = {
+                    id,
+                    amount: amount || transaction.amount,
+                    pending: pending || transaction.pending
+
+                }
+                return letObj
+            } else {
+                return transaction
+            }
+        })
+            updateTransactionJSON = JSON.stringify(updateTransactionArray);
+            fs.writeFile(transactionPath, updateTransactionJSON)
+            return letObj
 }
 const destroy = (transaction_id) => {
     let deleteObj;
