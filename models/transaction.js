@@ -14,7 +14,9 @@ const show = (transaction_id) => {
         const transactionJSON = fs.readFileSync(transactionPath);
         const allTransaction = JSON.parse(transactionJSON);
     const transactionFound = allTransaction.find(transaction =>transaction.id === id)
-    
+        const accountJSON = fs.readFileSync(accountPath, 'utf-8');
+        const accounts = JSON.parse(accountJSON);
+        // we need take account_id and send to JSON
 }
 const create = (account_id,{
         amount,
@@ -27,6 +29,12 @@ const create = (account_id,{
          amount: parseFloat(amount),
          pending: Boolean(pending)
      }
+     //jbdk fhkw qdbiw kjwebid wqucbwqnbiphvwnsajkeNDFOJVNWBFIWFD
+     //;KNWIHFHQDC NFBIPQ KJDBWIOE FKQPWNEFVWPJ Q[OE JWBPIQ DE IQEPFJQNPWJ DKQ
+    //IJSUFEQJB EQNFIQWND KQBEPIJFQEF KJEBQK ENPIJQENQEONFPIJQNF
+//,WK;ENFOWEUGFYEFGH8QHEHBEUGWFBQIWLJD WDFBIO8HQW DFHQBWIEF EBI VUHIAWDF EBHIOAF EB
+//F,;M NJOEU FCVHBE HBWIHFOAJWNF[JWOJNDFINQWFNNJPOJQWJFI
+//KEQNOFQJBFONE NB NEIFNWE FNIE FWENOJDJNQEOIFE]]
      allTransaction.push(transactionCreate)
      updatTransactionJSON = JSON.stringify(allTransaction);
      fs.writeFile(transactionPath, updatTransactionJSON)
