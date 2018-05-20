@@ -5,7 +5,7 @@ const index = (request, response) => {
     response.send(account)
 }
 const show = (request, response) => {
-        const account = transactionModel.show(request.params.transaction_id);
+        const account = transactionModel.show(request.params.id);
         response.send(account)
 }
 const create = (request, response) => {
@@ -17,7 +17,7 @@ const update = (request, response) => {
             response.send(account)
 }
 const destroy = (request, response) => {
-            const account = transactionModel.destroy(request.params.transaction_id);
+            const account = transactionModel.destroy(request.params.id);
             response.send(account)
 }
 
