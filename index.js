@@ -6,7 +6,9 @@ const app = express();
 const PORT = process.env.PORT || 3007
 const accountRoutes = require('./routes/accounts')
 const transactionRoutes = require('./routes/transactions')
+const cors = require('cors');
 
+app.use(cors());
 app.use(morgan('dev'));
 app.use(express.json());
 

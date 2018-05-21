@@ -4,6 +4,7 @@ const transactionPath = path.join(__dirname, "..", "data", "transactions.json")
 const uuid = require('uuid/v1');
 
 
+
 const index = (account_id) => {
     const transactionJSON = fs.readFileSync(transactionPath);
     const allTransaction = JSON.parse(transactionJSON);
@@ -43,27 +44,26 @@ const create = (account_id, {
     return transactionCreate
 }
 
-const update = (id, { account_id,  amount, pending }) => {
+const update = (id, { amount, pending }) => {
     const transactionsJSON = fs.readFileSync(transactionPath, 'utf-8');
     const allTransactions = JSON.parse(transactionsJSON);
     let letObj;
     let updatedPending;
-    const updatedTransactions = allTransaction.map(transaction => {
+    const updatedTransactions = allTransactions.map(transaction => {
         if (transaction.id === id) {
-            updatePending = pending === "undefined" ? transaction.pending : Boolean(pending)
+            updatedPending = pending === "undefined" ? transaction.pending : Boolean(pending)
             letObj = {
                 id,
-                account_id: account_id || transaction.account_id,
+                account_id : transaction.account_id , 
                 amount: parseFloat(amount) || transaction.amount,
                 pending: updatedPending
-
             };
             return letObj;
         } else {
             return transaction;
         }
     })
-    transactionsJSONstring = JSON.stringify(allTransactions);
+    transactionsJSONstring = JSON.stringify(updatedTransactions);
     fs.writeFileSync(transactionPath, transactionsJSONstring);
     return letObj;
 };

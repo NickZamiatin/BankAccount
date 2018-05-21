@@ -13,7 +13,7 @@ const create = (request, response) => {
         response.send(account)
 }
 const update = (request, response) => {
-            const account = transactionModel.update( request.params.id, request.body);
+            const account = transactionModel.update( request.params.transaction_id, request.body);
             response.send(account)
 }
 const destroy = (request, response) => {
