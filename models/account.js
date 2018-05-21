@@ -28,7 +28,7 @@ const create = ({
     }
     accounts.push(accountCreate)
     updateAccountJSON = JSON.stringify(accounts);
-    fs.writeFile(accountPath, updateAccountJSON)
+    fs.writeFileSync(accountPath, updateAccountJSON)
     return accountCreate
 }
 const update = (id, {
@@ -54,7 +54,7 @@ const update = (id, {
         }
     })
     updateAccountJSON = JSON.stringify(updateArray);
-    fs.writeFile(accountPath, updateAccountJSON)
+    fs.writeFileSync(accountPath, updateAccountJSON)
     return newObj
 
 
@@ -72,7 +72,7 @@ const destroy = (id) => {
         }
     });
     deleteAccountJSON = JSON.stringify(destroyAccount);
-    fs.writeFile(accountPath, deleteAccountJSON)
+    fs.writeFileSync(accountPath, deleteAccountJSON)
     return destroyAccount
 }
 

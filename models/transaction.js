@@ -46,16 +46,18 @@ const update = (id, {
         amount,
         pending
     }) => {
-        letObj;
+       const letObj = {} ;
+       let updatePending;
     const transactionJSON = fs.readFileSync(transactionPath);
     const allTransaction = JSON.parse(transactionJSON);
         const updateTransactionArray = allTransaction.map(transaction => {
             if (transaction.id === id) {
+                updatePending = pending === "undefined" ? transaction.pending : Boolean(pending)
                 letObj = {
                     id,
-                    amount: amount || transaction.amount,
-                    pending: pending || transaction.pending
-
+                    amount: parseFloat(amount) || transaction.amount,
+                    pending: updatePending,
+                    account_id : transaction.account_id
                 }
                 return letObj
             } else {
