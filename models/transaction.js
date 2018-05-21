@@ -14,9 +14,11 @@ const show = (transaction_id) => {
     const transactionJSON = fs.readFileSync(transactionPath);
     const allTransaction = JSON.parse(transactionJSON);
     const transactionFound = allTransaction.find(transaction => transaction.id)
+    const accountJSON = fs.readFileSync(accountPath, 'utf-8');
+    const accounts = JSON.parse(accountJSON);
+    const accountFound = accounts.find(account => account.id === transactionFound.account_id);
+    transactionFound.accountHolder = accountFound.accountHolder
     return transactionFound
-    // const accountJSON = fs.readFileSync(accountPath, 'utf-8');
-    // const accounts = JSON.parse(accountJSON);
     //  if(transaction.id   === id ){
     //  transaction.id === account.id
     //  showJSON = JSON.stringify(transactionFound);
