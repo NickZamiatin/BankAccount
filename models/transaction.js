@@ -42,32 +42,32 @@ const create = (account_id, {
     fs.writeFile(transactionPath, updatTransactionJSON)
     return transactionCreate
 }
-const update = (id, {
-        amount,
-        pending
-    }) => {
-       const letObj = {} ;
-       let updatePending;
-    const transactionJSON = fs.readFileSync(transactionPath);
-    const allTransaction = JSON.parse(transactionJSON);
-        const updateTransactionArray = allTransaction.map(transaction => {
-            if (transaction.id === id) {
-                updatePending = pending === "undefined" ? transaction.pending : Boolean(pending)
-                letObj = {
-                    id,
-                    amount: parseFloat(amount) || transaction.amount,
-                    pending: updatePending,
-                    account_id : transaction.account_id
-                }
-                return letObj
-            } else {
-                return transaction
-            }
-        })
-            updateTransactionJSON = JSON.stringify(updateTransactionArray);
-            fs.writeFile(transactionPath, updateTransactionJSON)
-            return letObj
-}
+
+const update = (id, { account_id,  amount, pending }) => {
+    const transactionsJSON = fs.readFileSync(transactionPath, 'utf-8');
+    const allTransactions = JSON.parse(transactionsJSON);
+    let letObj;
+    let updatedPending;
+    const updatedTransactions = allTransaction.map(transaction => {
+        if (transaction.id === id) {
+            updatePending = pending === "undefined" ? transaction.pending : Boolean(pending)
+            letObj = {
+                id,
+                account_id: account_id || transaction.account_id,
+                amount: parseFloat(amount) || transaction.amount,
+                pending: updatedPending
+
+            };
+            return letObj;
+        } else {
+            return transaction;
+        }
+    })
+    transactionsJSONstring = JSON.stringify(allTransactions);
+    fs.writeFileSync(transactionPath, transactionsJSONstring);
+    return letObj;
+};
+
 const destroy = (transaction_id) => {
     let deleteObj;
     const transactionJSON = fs.readFileSync(transactionPath, 'utf-8');
